@@ -19,6 +19,7 @@ class AnswerFactory extends Factory
         return [
             'answer' => $this->faker->sentence(mt_rand(2, 8)),
             'question_id' => mt_rand(1, 50),
+            'is_correct' => mt_rand(0, 1)
         ];
     }
 }

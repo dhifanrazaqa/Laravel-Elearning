@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('question_id');
             $table->text('answer');
+            $table->integer('is_correct');
             $table->timestamps();
         });
     }

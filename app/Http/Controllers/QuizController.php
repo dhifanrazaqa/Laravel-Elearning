@@ -36,13 +36,14 @@ class QuizController extends Controller
     }
     public function store(Request $request, $course, $quiz) {
         // dd($request->path());
+        $answer = Answer::where('id', $request->answer)->first()->is_correct;
         if ($request->type == 'post' && $request->answer != null) {
             StudentAnswer::create([
                 'no_induk' => '2210511001',
                 'quiz_id' => $request->quiz,
                 'question_id' => $request->question,
                 'answer_id' => $request->answer,
-                'is_correct' => mt_rand(0,1)
+                'is_correct' => $answer
             ]);
         }
         else {
